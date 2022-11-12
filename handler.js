@@ -1,5 +1,10 @@
 const triggerConfig = triggerGui.getElementsByClassName("triggerConfig")[0];
 
 getTriggerConfiguration(() => {
-  return triggerConfig.component.getTriggerConfiguration();
+  let config = triggerConfig.component.getTriggerConfiguration();
+
+  return {
+    text: "not " + config.text,
+    data: config,
+  };
 });

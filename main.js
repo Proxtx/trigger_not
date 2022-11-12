@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import { checkTrigger } from "../../private/triggers.js";
+let checkTrigger;
 
 export class Trigger {
   constructor(config, folder) {
@@ -16,6 +16,8 @@ export class Trigger {
   };
 
   triggers = async (data) => {
+    if (!checkTrigger)
+      checkTrigger = (await import("../../private/triggers.js")).checkTrigger;
     return !(await checkTrigger(data));
   };
 }

@@ -8,3 +8,11 @@ getTriggerConfiguration(async () => {
     data: config,
   };
 });
+
+(async () => {
+  if (triggerPresetData) {
+    await uiBuilder.ready(triggerConfig);
+    await triggerConfig.component.prepare();
+    triggerConfig.component.loadConfig(triggerPresetData);
+  }
+})();

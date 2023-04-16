@@ -12,7 +12,7 @@ getTriggerConfiguration(async () => {
 (async () => {
   if (triggerPresetData) {
     await uiBuilder.ready(triggerConfig);
-    await triggerConfig.component.prepare();
+    await triggerConfig.component.prepareCall;
     triggerConfig.component.loadConfig(triggerPresetData);
   }
 })();
